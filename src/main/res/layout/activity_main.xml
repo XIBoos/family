@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:contant="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.will.layout.main_ScrollView
+        android:id="@+id/scroll_mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top">
+            <include
+                android:id="@+id/linear_settingView"
+                layout="@layout/activity_main_setting"/>
+
+            <include
+                android:id="@+id/layout_mian"
+                layout="@layout/activity_main_main"/>
+
+        </LinearLayout>
+    </com.will.layout.main_ScrollView>
+
+    <com.will.layout.main_contactView
+        android:id="@+id/main_contactView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+    </com.will.layout.main_contactView>
+
+
+</RelativeLayout>

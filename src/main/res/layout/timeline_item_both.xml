@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/timeline_time"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingLeft="3dp"
+        android:paddingStart="3dp"
+        android:paddingRight="3dp"
+        android:paddingEnd="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/timeline_oval_both_shape"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/timeline_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="2016.10.23"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/timeline_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/timeline_data"
+            android:textSize="5sp"
+            android:text="12:00"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/timeline_time"
+        android:padding="10dp"
+        android:background="@drawable/timeline_content_both_shape">
+
+        <ImageView
+            android:id="@+id/timeline_image"
+            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/timeline_image_shape"/>
+
+        <TextView
+            android:id="@+id/timeline_title"
+            android:layout_toLeftOf="@id/timeline_image"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无标题"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/timeline_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timeline_title"
+            android:layout_toLeftOf="@id/timeline_image"
+            android:text="内容摘要" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

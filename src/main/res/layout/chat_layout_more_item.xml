@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/chat_more_picture_button"
+        android:layout_width="0.0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:drawableTop="@drawable/chat_more_picture_selector"
+        android:drawablePadding="8dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:gravity="center"
+        android:text="相片" />
+    <TextView
+        android:id="@+id/chat_more_camera_button"
+        android:layout_width="0.0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:text="相机"
+        android:gravity="center"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:drawablePadding="8dp"
+        android:drawableTop="@drawable/chat_more_camera_selector"/>
+    <TextView
+        android:id="@+id/chat_more_location_button"
+        android:layout_width="0.dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:drawableTop="@drawable/chat_more_location_selector"
+        android:gravity="center"
+        android:drawablePadding="8dp"
+        android:text="位置"/>
+
+</LinearLayout>

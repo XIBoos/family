@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:content="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#e2e2e2"
+    tools:context="com.will.ui.UserInforActivity">
+
+    <com.will.widget.TopBar
+        android:id="@+id/userinfo_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#e6e6e6"
+        content:TitleTextColor="#000000"
+        content:TitleTextSize="20sp"
+        content:LeftColor="#000000">
+
+    </com.will.widget.TopBar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#a1a1a1"
+        android:layout_below="@id/userinfo_topbar"/>
+
+    <ImageView
+        android:id="@+id/userinfo_image_avat"
+        android:layout_width="144px"
+        android:layout_height="144px"
+        android:layout_below="@id/userinfo_topbar"
+        android:src="@drawable/default_avatar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginEnd="36dp" />
+    <TextView
+        android:id="@+id/userinfo_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="手机:"
+        android:layout_below="@id/userinfo_image_avat"
+        android:textSize="22sp"/>
+    <TextView
+        android:id="@+id/userinfo_text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userinfo_image_avat"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toRightOf="@id/userinfo_username"
+        android:layout_toEndOf="@id/userinfo_username"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/userinfo_nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="昵称:"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_below="@id/userinfo_username"/>
+    <TextView
+        android:id="@+id/userinfo_text_nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_below="@id/userinfo_username"
+        android:layout_toRightOf="@id/userinfo_nick"
+        android:layout_toEndOf="@id/userinfo_nick"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/userinfo_remarkname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="备注:"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_below="@id/userinfo_nick"/>
+    <TextView
+        android:id="@+id/userinfo_text_remarkname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_below="@id/userinfo_nick"
+        android:layout_toRightOf="@id/userinfo_remarkname"
+        android:layout_toEndOf="@id/userinfo_remarkname"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/userinfo_button_addfriend_shape"
+        android:gravity="center"
+        android:text="添加到联系人"
+        android:id="@+id/userinfo_butt_addfriend"
+        android:layout_below="@+id/userinfo_text_remarkname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>
