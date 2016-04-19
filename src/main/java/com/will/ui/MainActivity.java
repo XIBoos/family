@@ -2,12 +2,9 @@ package com.will.ui;
 
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,7 +15,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.will.User.User;
 import com.will.adaptor.ContactAdapet;
 import com.will.bean.TimeLineItem;
 import com.will.family.MyApplication;
@@ -42,7 +38,8 @@ import cn.bmob.v3.listener.UploadFileListener;
 public class MainActivity extends BassActivity {
 
     MyApplication myApplication;
-    NewBroadcastReceiver receiver;
+    NewBroadcastReceiver newMessageReceiver;
+    TagBroadcastReceiver tagReceiver;
     Context context;
     private List<BmobChatUser> contact;
     private ContactAdapet adapet;
@@ -89,7 +86,6 @@ public class MainActivity extends BassActivity {
                 }
             }
         });
-        Log.d("family","44444");
         InitSettingView();
         InitContactView();
     }
@@ -241,7 +237,7 @@ public class MainActivity extends BassActivity {
         user.update(this, new UpdateListener() {
             @Override
             public void onSuccess() {
-                Log.d("family","头像跟新成功");
+                Log.d("family", "头像跟新成功");
             }
 
             @Override
@@ -254,17 +250,23 @@ public class MainActivity extends BassActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        receiver=new NewBroadcastReceiver();
-        IntentFilter intentFilter=new IntentFilter(BmobConfig.BROADCAST_NEW_MESSAGE);
-        intentFilter.setPriority(3);
-        registerReceiver(receiver, intentFilter);
+        initNewBroadcast();
+        initTagBroadcast();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(receiver);
+        unregisterReceiver(newMessageReceiver);
     }
+
+    private void initNewBroadcast(){
+        newMessageReceiver =new NewBroadcastReceiver();
+        IntentFilter intentFilter=new IntentFilter(BmobConfig.BROADCAST_NEW_MESSAGE);
+        intentFilter.setPriority(3);
+        registerReceiver(newMessageReceiver, intentFilter);
+    }
+
 
     public class NewBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -275,28 +277,23 @@ public class MainActivity extends BassActivity {
         }
     }
 
-    public class MYBroadcastReceiver extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context,Intent intent){
 
 
-        }
-    }
-
-    public class TWOBroadcastReceiver extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context,Intent intent){
-            //abortBroadcast();
-        }
-
+    private void initTagBroadcast(){
+        tagReceiver=new TagBroadcastReceiver();
+        IntentFilter tagFilter=new IntentFilter(BmobConfig.BROADCAST_ADD_USER_MESSAGE);
+        tagFilter.setPriority(3);
+        registerReceiver(tagReceiver,tagFilter);
     }
 
     private class TagBroadcastReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.d(TAG,"接收到新好友广播");
             //推送的标签对象
             BmobInvitation message=(BmobInvitation)intent
                     .getSerializableExtra("invite");
+            abortBroadcast();
         }
     }
 
