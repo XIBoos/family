@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:content="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="com.will.ui.ChatActivity">
+    tools:context="com.will.ui.ChatActivity" android:orientation="vertical">
     <com.will.widget.TopBar
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/chat_layout_topbar"
-        android:layout_alignParentTop="true"
-        content:TitleTextColor="#000000"
-        content:TitleTextSize="20sp"
-        content:LeftText="返回"
-        content:LeftColor="#000000"
-        content:RightText="资料"
-        content:RightColor="#000000"
-        >
+        android:id="@+id/chat_layout_topbar">
     </com.will.widget.TopBar>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ffa1a1a1" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <com.will.widget.ChatMsgList
+            android:divider="#f9f9f9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f9f9f9"
+            android:id="@+id/List">
+        </com.will.widget.ChatMsgList>
+        <include layout="@layout/chat_layout_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/chat_progress" />
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ffa1a1a1" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chat_layout_bottombar"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,7 +108,7 @@
             <com.will.widget.SpannableEidtText
                 android:id="@+id/chat_bottom_eidttext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
                 android:layout_toLeftOf="@id/chat_bottom_emo_button"
                 android:layout_toStartOf="@id/chat_bottom_emo_button"
                 android:layout_marginLeft="53dp"
@@ -140,31 +154,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#ffa1a1a1"
-        android:id="@+id/chat_view1"
-        android:layout_above="@id/chat_layout_bottombar"/>
-    <!--android:divider  分割线-->
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/chat_layout_topbar"
-        android:layout_above="@id/chat_view1">
-        <com.will.widget.ChatMsgList
-            android:divider="#f9f9f9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#f9f9f9"
-            android:id="@+id/List">
-        </com.will.widget.ChatMsgList>
-        <include layout="@layout/chat_layout_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/chat_progress" />
-    </FrameLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

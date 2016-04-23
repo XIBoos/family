@@ -170,7 +170,7 @@ public class MainActivity extends BassActivity {
 
                 return true;
             default:
-                if (event.getRawX()-start>=5){
+                if (event.getRawX()-start>=5||event.getRawX()-start==0){
                     contactView.display(contactView.HIDE);
                 }else if(event.getRawX()-start<=-5){
                     contactView.display(contactView.SHOW);

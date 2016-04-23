@@ -29,7 +29,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <activity android:name="com.will.ui.MainActivity" >
+        <activity
+            android:name="com.will.ui.MainActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+
         </activity>
         <activity
             android:name="com.will.ui.LoginActivity"
@@ -88,6 +91,11 @@
         <activity android:name="com.will.ui.TimelineActivity" >
         </activity>
         <activity android:name="com.will.ui.UserInforActivity" >
+        </activity>
+        <activity
+            android:name="com.will.ui.NoticeActivity"
+            android:label="@string/title_activity_notice">
+
         </activity>
     </application>
 

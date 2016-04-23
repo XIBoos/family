@@ -243,7 +243,7 @@ public class ChatActivity extends BassActivity {
             topBar.setTitleText(chatObject.getNick());
         else
             topBar.setTitleText(chatObject.getUsername());
-        topBar.setLeftText("返回");
+        topBar.getLeftButton().setBackgroundResource(R.drawable.but_universal_back);
         topBar.setLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

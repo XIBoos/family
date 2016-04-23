@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.bmob.im.bean.BmobChatUser;
 import cn.bmob.im.config.BmobConfig;
 import cn.bmob.v3.listener.PushListener;
 
@@ -37,7 +38,7 @@ public class UserInforActivity extends BassActivity {
     private TopBar topBar;
     private Button addFriend;
 
-    private User object;
+    private BmobChatUser object;
 
     private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 
@@ -46,21 +47,15 @@ public class UserInforActivity extends BassActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_infor);
         Bundle bundle=getIntent().getExtras();
-        object=(User)bundle.getSerializable("user");
+        object=(BmobChatUser)bundle.getSerializable("user");
         InitView();
     }
 
     private void InitTopBar(){
         topBar=(TopBar)findViewById(R.id.userinfo_topbar);
         topBar.setTitleText("个人信息");
-        topBar.setLeftText("返回");
-        topBar.setRightText("");
-        topBar.setRightOnClickLisener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        topBar.getLeftButton().setBackgroundResource(R.drawable.but_universal_back);
+        topBar.setTopbarWithoutRight(true);
         topBar.setLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,8 +78,6 @@ public class UserInforActivity extends BassActivity {
             username.setText(object.getUsername());
         if(object.getNick()!=null&&!TextUtils.isEmpty(object.getNick()))
             nick.setText(object.getNick());
-        if(object.getRemarkName()!=null&&!TextUtils.isEmpty(object.getRemarkName()))
-            remarkname.setText(object.getRemarkName());
 
         addFriend=(Button)findViewById(R.id.userinfo_butt_addfriend);
         addFriend.setOnClickListener(new View.OnClickListener() {
